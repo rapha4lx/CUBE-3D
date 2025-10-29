@@ -3,7 +3,8 @@
 
 #include <stdio.h>
 #include <unistd.h>
-
+#include <fcntl.h>
+#include "../imports/libft/libft.h"
 
 typedef struct s_line
 {
@@ -14,16 +15,6 @@ typedef struct s_line
 void t_line_add_back(t_line **lst, t_line *new);
 t_line *t_line_new(char *line);
 void t_line_clear(t_line **lst);
-
-
-typedef struct s_map
-{
-    int width;
-    int height;
-    char **map;
-} t_map;
-
-
 
 typedef struct s_texture
 {
@@ -36,6 +27,16 @@ typedef struct s_texture
     char **ceiling;
 } t_texture;
 
+int alloc_texture(t_texture *texture, char* line);
+void free_texture(t_texture *texture);
+
+typedef struct s_map
+{
+    int width;
+    int height;
+    char **map;
+} t_map;
+
 typedef struct s_cube
 {
     int fd;
@@ -45,5 +46,10 @@ typedef struct s_cube
     
 
 } t_cube;
+
+
+void start_cube(t_cube *cube);
+void free_cube(t_cube *cube);
+
 
 #endif // CUBE_

@@ -16,8 +16,8 @@ void t_line_add_back(t_line **lst, t_line *new);
 t_line *t_line_new(char *line);
 void t_line_clear(t_line **lst);
 
-int read_lines(t_line *lines, int fd);
-void print_lines(t_line *lines);
+int read_lines(t_line **lines, int fd);
+void print_lines(t_line *lines); // Remove before
 
 typedef struct s_texture
 {

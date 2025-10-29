@@ -1,4 +1,4 @@
-#include "cube.h"
+#include "../../cube.h"
 
 void t_line_add_back(t_line **lst, t_line *new)
 {

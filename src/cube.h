@@ -16,6 +16,9 @@ void t_line_add_back(t_line **lst, t_line *new);
 t_line *t_line_new(char *line);
 void t_line_clear(t_line **lst);
 
+int read_lines(t_line *lines, int fd);
+void print_lines(t_line *lines);
+
 typedef struct s_texture
 {
     char *north;
@@ -37,16 +40,15 @@ typedef struct s_map
     char **map;
 } t_map;
 
+void alloc_map(t_map *map, char *line);
+
 typedef struct s_cube
 {
     int fd;
     t_line *lines;
     t_map map;
     t_texture textures;
-    
-
 } t_cube;
-
 
 void start_cube(t_cube *cube);
 void free_cube(t_cube *cube);

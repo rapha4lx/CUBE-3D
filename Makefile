@@ -2,16 +2,21 @@ NAME=	cube
 
 IMPORTS=	imports/
 LIBFT_PATH=	$(IMPORTS)libft/
-MINILIB_PATH= $(IMPORTS)minilibx-linux/
+# MINILIB_PATH= $(IMPORTS)minilibx-linux/
 
 LIBFT_A=	$(LIBFT_PATH)libft.a
-MINILIB_A= 	$(MINILIB_PATH)libmlx.a
+# MINILIB_A= 	$(MINILIB_PATH)libmlx.a
 
 CC=		cc
 CFLAGS=	-g -Wall -Werror -Wextra
 INCLUDE= includes
 
-SRCS=	main.c 
+SRCS=	src/main.c \
+		src/cube.c \
+		src/parser/map/line.c \
+		src/parser/read_file.c \
+		src/parser/map/texture.c \
+		src/parser/parser.c
 		
 
 

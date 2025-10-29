@@ -6,7 +6,7 @@
 /*   By: showoff <showoff@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:05:49 by showoff           #+#    #+#             */
-/*   Updated: 2025/10/29 15:05:49 by showoff          ###   ########.fr       */
+/*   Updated: 2025/10/29 16:00:56 by showoff          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ int main(int argc, char** argv)
     MSG("Map fd: %d", cube.fd);
     if (read_lines(&cube.lines, cube.fd) == 0)
         return (0);
-    t_line_clear(&cube.lines);
-
+    
+    if (parser(cube.lines, &cube.map, &cube.textures) == 0)
+        return (free_cube(&cube), 0);
+    
     free_cube(&cube);
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: showoff <showoff@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:05:54 by showoff           #+#    #+#             */
-/*   Updated: 2025/10/29 15:06:24 by showoff          ###   ########.fr       */
+/*   Updated: 2025/10/29 16:03:44 by showoff          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void free_texture(t_texture *texture)
     if (texture->east)
         free(texture->east);
     if (texture->floor)
-        free(texture->floor);
+        ft_free_split(texture->floor);
     if (texture->ceiling)
-        free(texture->ceiling);
+        ft_free_split(texture->ceiling);
 }

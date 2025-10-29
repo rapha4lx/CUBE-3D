@@ -30,6 +30,10 @@ typedef struct s_texture
     char **ceiling;
 } t_texture;
 
+int load_textures(t_line *lines, t_texture *textures);
+
+void free_and_set_null(char **ptr);
+
 int alloc_texture(t_texture *texture, char* line);
 void free_texture(t_texture *texture);
 
@@ -40,6 +44,7 @@ typedef struct s_map
     char **map;
 } t_map;
 
+int parser(t_line *lines, t_map *map, t_texture *textures);
 void alloc_map(t_map *map, char *line);
 
 typedef struct s_cube

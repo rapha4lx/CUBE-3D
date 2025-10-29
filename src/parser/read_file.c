@@ -6,7 +6,7 @@
 /*   By: showoff <showoff@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:05:50 by showoff           #+#    #+#             */
-/*   Updated: 2025/10/29 15:05:51 by showoff          ###   ########.fr       */
+/*   Updated: 2025/10/29 16:00:25 by showoff          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,25 @@
 int read_lines(t_line **lines, int fd)
 {
     char *line;
-
+    char *buff;
     if (fd == -1)
         return (0);
     line = get_next_line(fd);
     while (line)
     {
-        t_line_add_back(lines, t_line_new(line));
+        if (line && line[0] != '\n')
+        {
+            buff = ft_strrchr(line, '\n');
+            if (buff)
+                *buff = '\0';
+            t_line_add_back(lines, t_line_new(line));
+        }
+        else
+            free(line);
         line = get_next_line(fd);
     }
     return 1;
 }
-
 
 void print_lines(t_line *lines)
 {
@@ -38,5 +45,13 @@ void print_lines(t_line *lines)
         ft_printf("%s\n", tmp->line);
         tmp = tmp->next;
     }
+}
+
+void free_and_set_null(char **ptr)
+{
+    if (!ptr || !*ptr)
+        return ;
+    free(*ptr);
+    *ptr = NULL;
 }
 
